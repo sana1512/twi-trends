@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="20">
+    <title>TweeTrends</title>
+    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">     -->     
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>       
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      let lis1 = ['{{sentiments[0, 0]}}', '{{sentiments[0,1]}}', '{{sentiments[0,2]}}'];
+      let lis2 = ['{{sentiments[1, 0]}}', '{{sentiments[1,1]}}', '{{sentiments[1,2]}}'];
+      let lis3 = ['{{sentiments[2, 0]}}', '{{sentiments[2,1]}}', '{{sentiments[2,2]}}'];
+      let lis4 = ['{{sentiments[3, 0]}}', '{{sentiments[3,1]}}', '{{sentiments[3,2]}}'];
+      let lis5 = ['{{sentiments[4, 0]}}', '{{sentiments[4,1]}}', '{{sentiments[4,2]}}'];
+      let lis6 = ['{{sentiments[5, 0]}}', '{{sentiments[5,1]}}', '{{sentiments[5,2]}}'];
+      let lis7 = ['{{sentiments[6, 0]}}', '{{sentiments[6,1]}}', '{{sentiments[6,2]}}'];
+      let lis8 = ['{{sentiments[7, 0]}}', '{{sentiments[7,1]}}', '{{sentiments[7,2]}}'];
+      let lis9 = ['{{sentiments[8, 0]}}', '{{sentiments[8,1]}}', '{{sentiments[8,2]}}'];
+      let lis10 = ['{{sentiments[9, 0]}}', '{{sentiments[9,1]}}', '{{sentiments[9,2]}}'];
+      function drawChart() {
+        
+        var data1 = google.visualization.arrayToDataTable([
+          ['Sentiments', 'Percentage'],
+          ['Positive', Number(lis1[0])],
+          ['Negative', Number(lis1[1])],
+          ['Neutral',  Number(lis1[2])]
+        ]);
+        var data2 = google.visualization.arrayToDataTable([
+          ['Sentiments', 'Percentage'],
+          ['Positive', Number(lis2[0])],
+          ['Negative', Number(lis2[1])],
+          ['Neutral',  Number(lis2[2])]
+        ]);
+        var data3 = google.visualization.arrayToDataTable([
+          ['Sentiments', 'Percentage'],
+          ['Positive', Number(lis3[0])],
+          ['Negative', Number(lis3[1])],
+          ['Neutral',  Number(lis3[2])]
+        ]);
+        var data4 = google.visualization.arrayToDataTable([
+          ['Sentiments', 'Percentage'],
+          ['Positive', Number(lis4[0])],
+          ['Negative', Number(lis4[1])],
+          ['Neutral',  Number(lis4[2])]
+        ]);
+        var data5 = google.visualization.arrayToDataTable([
+          ['Sentiments', 'Percentage'],
+          ['Positive', Number(lis5[0])],
+          ['Negative', Number(lis5[1])],
+          ['Neutral',  Number(lis5[2])]
+        ]);
+        var data6 = google.visualization.arrayToDataTable([
+          ['Sentiments', 'Percentage'],
+          ['Positive', Number(lis6[0])],
+          ['Negative', Number(lis6[1])],
+          ['Neutral',  Number(lis6[2])]
+        ]);
+        var data7 = google.visualization.arrayToDataTable([
+          ['Sentiments', 'Percentage'],
+          ['Positive', Number(lis7[0])],
+          ['Negative', Number(lis7[1])],
+          ['Neutral',  Number(lis7[2])]
+        ]);
+        var data8 = google.visualization.arrayToDataTable([
+          ['Sentiments', 'Percentage'],
+          ['Positive', Number(lis8[0])],
+          ['Negative', Number(lis8[1])],
+          ['Neutral',  Number(lis8[2])]
+        ]);
+
+        var data9 = google.visualization.arrayToDataTable([
+          ['Sentiments', 'Percentage'],
+          ['Positive', Number(lis9[0])],
+          ['Negative', Number(lis9[1])],
+          ['Neutral',  Number(lis9[2])]
+        ]);
+        var data10 = google.visualization.arrayToDataTable([
+          ['Sentiments', 'Percentage'],
+          ['Positive', Number(lis10[0])],
+          ['Negative', Number(lis10[1])],
+          ['Neutral',  Number(lis10[2])]
+        ]);
+
+        var options = {          
+          title: 'Pie Chart',
+          width:600,
+          height:400,             
+          is3D: true,
+          backgroundColor: '#313142',
+          titleTextStyle: {color:'#FFFFFF'},
+          slices:
+            {
+              0: { color: '#F84F76'},
+              1: { color: '#FFA526'},
+              2: { color: '#00B295'}            
+            },
+          legend: {
+            textStyle: { color: 'white'}
+          }
+        };
+        
+        var chart1 = new google.visualization.PieChart(document.getElementById('piechart1'));
+        chart1.draw(data1, options);
+        var chart2 = new google.visualization.PieChart(document.getElementById('piechart2'));
+        chart2.draw(data2, options);
+
+        var chart3 = new google.visualization.PieChart(document.getElementById('piechart3'));
+        chart3.draw(data3, options);
+        var chart4 = new google.visualization.PieChart(document.getElementById('piechart4'));
+        chart4.draw(data4, options);
+
+        var chart5 = new google.visualization.PieChart(document.getElementById('piechart5'));
+        chart5.draw(data5, options);
+        var chart6 = new google.visualization.PieChart(document.getElementById('piechart6'));
+        chart6.draw(data6, options);
+        
+        var chart7 = new google.visualization.PieChart(document.getElementById('piechart7'));
+        chart7.draw(data7, options);
+        var chart8 = new google.visualization.PieChart(document.getElementById('piechart8'));
+        chart8.draw(data8, options);
+
+        var chart9 = new google.visualization.PieChart(document.getElementById('piechart9'));
+        chart9.draw(data9, options);
+        var chart10 = new google.visualization.PieChart(document.getElementById('piechart10'));
+        chart10.draw(data10, options);
+        
+      }
+      
+    </script>
+    
+    <style>
+      * {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+          box-sizing: border-box;
+          font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+      body {
+        background: #212131;
+        font-size: 12px;
+        line-height: 20px;
+      }
+
+      .wrapper {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #313142;
+        width: 80%;
+        height: 100%;
+        display: flex;
+        border-radius: 15px;
+      }
+
+      .wrapper .wrapper_left {
+        width: 400px;
+        background: #393952;
+        padding: 0 25px;
+        display: flex;
+        align-items: center;
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 15px;
+        box-shadow: 10px 0px 13px 0px rgba(41, 41, 57, 0.7);
+      }
+
+      .wrapper .wrapper_left ul li {
+        background: #313142;
+        margin-bottom: 10px;
+        border-radius: 3px;
+        padding: 12px 25px;
+        text-transform: uppercase;
+        font-weight: 500;
+        position: relative;
+        overflow: hidden;
+        width: 350px;
+        letter-spacing: 2px;
+        transition: all 0.4s ease;
+        cursor: pointer;
+      }
+
+      .wrapper .wrapper_left ul li p {
+        color: #abaacd;
+        position: relative;
+      }
+
+      .wrapper .wrapper_left ul li:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 5px;
+        height: 100%;
+        background: #5437b7;
+        background: linear-gradient(
+          126deg,
+          rgba(2, 0, 36, 1) 0%,
+          rgba(123, 90, 231, 1) 0%,
+          rgba(88, 54, 206, 1) 100%
+        );
+        border-radius: 5px;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        transition: all 0.4s ease;
+      }
+
+      .wrapper .wrapper_left ul li.active {
+        width: 350px;
+      }
+      .wrapper .wrapper_left ul li.active p {
+        color: #fff;
+      }
+      .wrapper .wrapper_left ul li.active:before {
+        width: 100%;
+        transition: all 0.2s ease;
+      }
+      .wrapper .wrapper_left ul li:last-child {
+        margin-bottom: 0;
+      }
+      .wrapper .wrapper_right {
+        width: 550px;
+        padding: 30px 50px;
+      }
+      .wrapper .wrapper_right .title {
+        font-size: 28px;
+        text-align: center;
+        font-weight: 700;
+        color: #8d8d96;
+        margin-bottom: 30px;
+        text-transform: uppercase;
+      }
+      .wrapper .wrapper_right .item p{
+        margin-top: 10px;
+        font-size: 16px;
+        line-height: 28px;
+      }
+      .pos{
+        margin-top: 10px;
+        color: #F84F76;
+      }
+      .neg{
+        color: #FFA526;
+      }
+      .nu{
+        color: #00B295;
+      }
+      .wrapper .wrapper_right .item .item_info {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      .wrapper .wrapper_right .item .item_info p {
+        background: #fff;
+        width: auto;
+        padding: 8px;
+        border-radius: 5px;
+        color: #dd0330;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-align: center;
+      }
+    </style>
+  </head>
+<body>
+  <div class="wrapper">
+    <div class="wrapper_left">
+      <ul>
+        <li data-li="a" class="active">
+          <p>{{trends[0]}}</p>
+        </li>
+        <li data-li="b">
+          <p>{{trends[1]}}</p>
+        </li>
+        <li data-li="c">
+          <p>{{trends[2]}}</p>
+        </li>
+        <li data-li="d">
+          <p>{{trends[3]}}</p>
+        </li>  
+        <li data-li="e">
+          <p>{{trends[4]}}</p>
+        </li>      
+        <li data-li="f">
+          <p>{{trends[5]}}</p>
+        </li>
+        <li data-li="g">
+          <p>{{trends[6]}}</p>
+        </li>
+        <li data-li="h">
+          <p>{{trends[7]}}</p>
+        </li>
+        <li data-li="i">
+          <p>{{trends[8]}}</p>
+        </li>
+        <li data-li="j">
+          <p>{{trends[9]}}</p>
+        </li>
+      </ul>
+    </div>
+    <div class="wrapper_right">
+      <div class="title">
+        Sentiments Analysis
+      </div>
+      <div class="container">
+        <div class="item a">
+          <div class="item_info">
+            <p>{{trends[0]}}</p>
+          </div>
+          <p class="pos">Positive tweets : {{sentiments[0, 0]}} </p>
+          <p class="neg">Negative tweets : {{sentiments[0, 1]}} </p>
+          <p class="nu">Neutral tweets : {{sentiments[0, 2]}} </p>            
+          <div id="piechart1" ></div>
+        </div>
+        <div class="item b" style="display: none;">
+          <div class="item_info">
+            <p>{{trends[1]}}</p>
+          </div>
+          <p class="pos">Positive tweets : {{sentiments[1, 0]}}</p>
+          <p class="neg">Negative tweets : {{sentiments[1, 1]}}</p>
+          <p class="nu">Neutral tweets : {{sentiments[1, 2]}}</p>  
+          <div id="piechart2" ></div>                  
+        </div>
+        <div class="item c" style="display: none;">
+          <div class="item_info">
+            <p>{{trends[2]}}</p>
+          </div>
+          <p class="pos">Positive tweets : {{sentiments[2, 0]}}</p>
+          <p class="neg">Negative tweets : {{sentiments[2, 1]}}</p>
+          <p class="nu">Neutral tweets : {{sentiments[2, 2]}}</p>      
+          <div id="piechart3" style="width: 600px; height: 400px;"></div>    
+        </div>
+        <div class="item d" style="display: none;">
+          <div class="item_info">
+            <p>{{trends[3]}}</p>
+          </div>
+          <p class="pos">Positive tweets : {{sentiments[3, 0]}}</p>
+          <p class="neg">Negative tweets : {{sentiments[3, 1]}}</p>
+          <p class="nu">Neutral tweets : {{sentiments[3, 2]}}</p>      
+          <div id="piechart4" ></div>
+        </div>        
+        <div class="item e" style="display: none;">
+          <div class="item_info">
+            <p>{{trends[4]}}</p>
+          </div>
+          <p class="pos">Positive tweets : {{sentiments[4, 0]}}</p>
+          <p class="neg">Negative tweets : {{sentiments[4, 1]}}</p>
+          <p class="nu">Neutral tweets : {{sentiments[4, 2]}}</p>
+          <div id="piechart5" ></div>
+        </div>
+        <div class="item f" style="display: none;">
+          <div class="item_info">
+            <p>{{trends[5]}}</p>
+          </div>
+          <p class="pos">Positive tweets : {{sentiments[5, 0]}}</p>
+          <p class="neg">Negative tweets : {{sentiments[5, 1]}}</p>
+          <p class="nu">Neutral tweets : {{sentiments[5, 2]}}</p>
+          <div id="piechart6" ></div>
+        </div>
+        <div class="item g" style="display: none;">
+          <div class="item_info">
+            <p>{{trends[6]}}</p>
+          </div>
+          <p class="pos">Positive tweets : {{sentiments[6, 0]}}</p>
+          <p class="neg">Negative tweets : {{sentiments[6, 1]}}</p>
+          <p class="nu">Neutral tweets : {{sentiments[6, 2]}}</p>
+          <div id="piechart7" ></div>
+        </div>
+        <div class="item h" style="display: none;">
+          <div class="item_info">
+            <p>{{trends[7]}}</p>
+          </div>
+          <p class="pos">Positive tweets : {{sentiments[7, 0]}}</p>
+          <p class="neg">Negative tweets : {{sentiments[7, 1]}}</p>
+          <p class="nu">Neutral tweets : {{sentiments[7, 2]}}</p>
+            <div id="piechart8" ></div>
+        </div>
+        <div class="item i" style="display: none;">
+          <div class="item_info">
+            <p>{{trends[8]}}</p>
+          </div>
+          <p class="pos">Positive tweets : {{sentiments[8, 0]}}</p>
+          <p class="neg">Negative tweets : {{sentiments[8, 1]}}</p>
+          <p class="nu">Neutral tweets : {{sentiments[8, 2]}}</p>
+          <div id="piechart9" ></div>
+        </div>
+        <div class="item j" style="display: none;">
+          <div class="item_info">
+            <p>{{trends[9]}}</p>
+          </div>
+          <p class="pos">Positive tweets : {{sentiments[9, 0]}}</p>
+          <p class="neg">Negative tweets : {{sentiments[9, 1]}}</p>
+          <p class="nu"> Neutral tweets : {{sentiments[9, 2]}}</p>
+          <div id="piechart10" ></div>
+        </div>
+      </div>
+    </div>
+  </div> 
+  <script type="text/javascript" src="{{ url_for('static', filename='scripts.js') }}"></script> 
+</body>
+</html>
