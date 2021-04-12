@@ -19,7 +19,7 @@ api = tweepy.API(authenticate, wait_on_rate_limit = True)
 
 def getTrends():
   try:
-    woeid = 23424977 #23424848
+    woeid = 23424848
     trends_result = api.trends_place(woeid)
     trends_list = []
 
@@ -55,7 +55,7 @@ def getPolarity(text):
 
 def getTweets():
   t = getTrends()
-  n=50
+  n=25
   df=pd.DataFrame(index=np.arange(n), columns=np.arange(10))
   for i in range(0, 10):
     tweets = tweepy.Cursor(api.search, q=t[i], lang="en", tweet_mode='extended').items(n)
@@ -77,7 +77,7 @@ def getTweets():
 def getSentiments():
   arr = np.zeros((10, 3))
   df = getTweets()
-  n=50
+  n=25
   pdf = pd.DataFrame(index=np.arange(n), columns=np.arange(1))
   for i in range(0, 10):
     df[i]=df[i].apply(cleanText)
@@ -95,7 +95,7 @@ def getSentiments():
       else:
         neg=neg+1
 
-    arr[i, 0] = pos
-    arr[i, 1] = neg
-    arr[i, 2] = neu
+    arr[i, 0] = pos*4
+    arr[i, 1] = neg*4
+    arr[i, 2] = neu*4
   return arr
